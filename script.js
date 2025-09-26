@@ -17,24 +17,30 @@ var init = function() {
     window.addEventListener('resize', resizeCanvas);
 
     var rand = Math.random;
+
+    // Original heart function
     var heartPosition = function(rad) {
         return [Math.pow(Math.sin(rad), 3),
                 -(15 * Math.cos(rad) - 5 * Math.cos(2*rad) - 2 * Math.cos(3*rad) - Math.cos(4*rad))];
     };
 
-    var scaleAndTranslate = function(pos, sx, sy, dx, dy) {
-        return [dx + pos[0]*sx, dy + pos[1]*sy];
+    var scaleAndTranslate = function(pos, scale) {
+        return [pos[0]*scale, pos[1]*scale];
     };
 
     var traceCount = 20;
     var pointsOrigin = [];
-    var dr = 0.3;
+    var dr = 0.1; // finer points for smoother heart
 
-    // SCALE proportional to canvas size (smaller dimension)
-    var baseScale = Math.min(width, height) / 2.5; 
-    for(var i=0;i<Math.PI*2;i+=dr) pointsOrigin.push(scaleAndTranslate(heartPosition(i), baseScale, baseScale, 0, 0));
-    for(var i=0;i<Math.PI*2;i+=dr) pointsOrigin.push(scaleAndTranslate(heartPosition(i), baseScale*0.7, baseScale*0.7, 0, 0));
-    for(var i=0;i<Math.PI*2;i+=dr) pointsOrigin.push(scaleAndTranslate(heartPosition(i), baseScale*0.4, baseScale*0.4, 0, 0));
+    // Compute scale based on canvas size (preserves heart shape)
+    var originalMaxWidth = 210; // original design max width
+    var originalMaxHeight = 13; // original max height used in pointsOrigin
+    var scaleFactor = Math.min(width / (originalMaxWidth*2), height / (originalMaxHeight*20)); 
+
+    // Generate heart points
+    for (var i = 0; i < Math.PI*2; i += dr) pointsOrigin.push(scaleAndTranslate(heartPosition(i), scaleFactor*210));
+    for (var i = 0; i < Math.PI*2; i += dr) pointsOrigin.push(scaleAndTranslate(heartPosition(i), scaleFactor*150));
+    for (var i = 0; i < Math.PI*2; i += dr) pointsOrigin.push(scaleAndTranslate(heartPosition(i), scaleFactor*90));
 
     var heartPointsCount = pointsOrigin.length;
     var targetPoints = [];
