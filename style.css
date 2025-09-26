@@ -1,17 +1,6 @@
-/* style.css */
-body {
-  margin: 0;
-  background: black;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  overflow: hidden;
-}
-
 canvas {
-  display: block;
-  width: 100%;      /* shrink to fit phone width */
-  height: auto;     /* preserve aspect ratio */
-  max-height: 100vh; /* don’t overflow screen height */
+    display: block;
+    width: 95vw;      /* slightly smaller than full width */
+    height: auto;     /* preserve aspect ratio */
+    max-height: 95vh; /* slightly smaller than full height */
 }
