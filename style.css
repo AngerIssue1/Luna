@@ -1,8 +1,15 @@
-canvas{
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #00000033;
+body {
+  margin: 0;
+  background: black;
+  overflow: hidden;       /* no scrollbars */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+canvas {
+  display: block;
+  width: 100vw;           /* fill phone width */
+  height: 100vh;          /* fill phone height */
 }
