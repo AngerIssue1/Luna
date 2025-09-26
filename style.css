@@ -1,28 +1,54 @@
 .heart {
   position: relative;
-  width: 40vw;       /* responsive width for phone */
-  height: 40vw;      /* keep it square */
+  width: 150px;         /* base size */
+  height: 150px;
   background-color: red;
   transform: rotate(-45deg);
-  margin: 5vh auto;  /* vertical margin responsive */
+  margin: 50px auto;
+}
+
+/* Make it responsive for phones */
+@media (max-width: 480px) {
+  .heart {
+    width: 100px;        /* smaller on phones */
+    height: 100px;
+    margin: 30px auto;
+  }
 }
 
 .heart::before,
 .heart::after {
   content: "";
   position: absolute;
-  width: 40vw;
-  height: 40vw;
+  width: 150px;
+  height: 150px;
   background-color: red;
   border-radius: 50%;
 }
 
+@media (max-width: 480px) {
+  .heart::before,
+  .heart::after {
+    width: 100px;
+    height: 100px;
+  }
+}
+
 .heart::before {
-  top: -20vw;
+  top: -75px;
   left: 0;
 }
 
 .heart::after {
-  left: 20vw;
+  left: 75px;
   top: 0;
+}
+
+@media (max-width: 480px) {
+  .heart::before {
+    top: -50px;
+  }
+  .heart::after {
+    left: 50px;
+  }
 }
