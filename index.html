@@ -1,32 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Heart Animation</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    /* Make canvas always fill the screen */
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      width: 100%;
-      background: black; /* fallback background */
-      overflow: hidden;
-    }
-    canvas {
-      display: block;
-      width: 100vw;
-      height: 100vh;
-    }
-  </style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  .heart {
+    position: relative;
+    width: 20vw;   /* responsive width */
+    height: 20vw;  /* keep it square */
+    background-color: red;
+    transform: rotate(-45deg);
+    margin: 50px auto;
+  }
+  .heart::before,
+  .heart::after {
+    content: "";
+    position: absolute;
+    width: 20vw;
+    height: 20vw;
+    background-color: red;
+    border-radius: 50%;
+  }
+  .heart::before {
+    top: -10vw;
+    left: 0;
+  }
+  .heart::after {
+    left: 10vw;
+    top: 0;
+  }
+</style>
 </head>
 <body>
-  <!-- The canvas for your animation -->
-  <canvas id="heart"></canvas>
-
-  <!-- Your script -->
-  <script src="script.js"></script>
+<div class="heart"></div>
 </body>
 </html>
