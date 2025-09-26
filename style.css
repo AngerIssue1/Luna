@@ -50,5 +50,7 @@
   }
   .heart::after {
     left: 50px;
+    body { background-color: lime; }
+
   }
 }
