@@ -1,54 +1,17 @@
-.heart {
-  position: relative;
-  width: 150px;         /* base size */
-  height: 150px;
-  background-color: red;
-  transform: rotate(-45deg);
-  margin: 50px auto;
+/* Make body full screen and center canvas */
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: black; /* matches your animation background */
+  overflow: hidden;         /* prevents scrollbars on small phones */
 }
 
-/* Make it responsive for phones */
-@media (max-width: 480px) {
-  .heart {
-    width: 100px;        /* smaller on phones */
-    height: 100px;
-    margin: 30px auto;
-  }
-}
-
-.heart::before,
-.heart::after {
-  content: "";
-  position: absolute;
-  width: 150px;
-  height: 150px;
-  background-color: red;
-  border-radius: 50%;
-}
-
-@media (max-width: 480px) {
-  .heart::before,
-  .heart::after {
-    width: 100px;
-    height: 100px;
-  }
-}
-
-.heart::before {
-  top: -75px;
-  left: 0;
-}
-
-.heart::after {
-  left: 75px;
-  top: 0;
-}
-
-@media (max-width: 480px) {
-  .heart::before {
-    top: -50px;
-  }
-  .heart::after {
-    left: 50px;
-  }
+/* Canvas fills width and height proportionally */
+canvas {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
 }
