@@ -1,8 +1,28 @@
-canvas{
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #00000033;
+.heart {
+  position: relative;
+  width: 40vw;       /* responsive width for phone */
+  height: 40vw;      /* keep it square */
+  background-color: red;
+  transform: rotate(-45deg);
+  margin: 5vh auto;  /* vertical margin responsive */
+}
+
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  width: 40vw;
+  height: 40vw;
+  background-color: red;
+  border-radius: 50%;
+}
+
+.heart::before {
+  top: -20vw;
+  left: 0;
+}
+
+.heart::after {
+  left: 20vw;
+  top: 0;
 }
