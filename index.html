@@ -3,31 +3,42 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
-  .heart {
-    position: relative;
-    width: 20vw;   /* responsive width */
-    height: 20vw;  /* keep it square */
-    background-color: red;
-    transform: rotate(-45deg);
-    margin: 50px auto;
-  }
-  .heart::before,
-  .heart::after {
-    content: "";
-    position: absolute;
-    width: 20vw;
-    height: 20vw;
-    background-color: red;
-    border-radius: 50%;
-  }
-  .heart::before {
-    top: -10vw;
-    left: 0;
-  }
-  .heart::after {
-    left: 10vw;
-    top: 0;
-  }
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #fff;
+  margin: 0;
+}
+
+.heart {
+  position: relative;
+  width: 25vmin;   /* responsive: 25% of smaller viewport dimension */
+  height: 25vmin;
+  background-color: red;
+  transform: rotate(-45deg);
+}
+
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  width: 25vmin;
+  height: 25vmin;
+  background-color: red;
+  border-radius: 50%;
+}
+
+.heart::before {
+  top: -12.5vmin;
+  left: 0;
+}
+
+.heart::after {
+  left: 12.5vmin;
+  top: 0;
+}
 </style>
 </head>
 <body>
