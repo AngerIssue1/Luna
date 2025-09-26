@@ -14,10 +14,11 @@ body {
 
 .heart {
   position: relative;
-  width: 25vmin;   /* responsive: 25% of smaller viewport dimension */
+  width: 25vmin;
   height: 25vmin;
   background-color: red;
   transform: rotate(-45deg);
+  animation: beat 1s infinite;
 }
 
 .heart::before,
@@ -38,6 +39,16 @@ body {
 .heart::after {
   left: 12.5vmin;
   top: 0;
+}
+
+/* Beat animation */
+@keyframes beat {
+  0%, 100% {
+    transform: rotate(-45deg) scale(1);
+  }
+  50% {
+    transform: rotate(-45deg) scale(1.2);
+  }
 }
 </style>
 </head>
