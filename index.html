@@ -1,60 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
-  background: #fff;
-}
-
-/* Heart container */
-.heart {
-  position: relative;
-  width: 25vmin;        /* scales with viewport */
-  height: 25vmin;
-  background-color: red;
-  transform: rotate(-45deg);
-  animation: beat 1s infinite;
-}
-
-/* Top left and right circles */
-.heart::before,
-.heart::after {
-  content: "";
-  position: absolute;
-  width: 25vmin;
-  height: 25vmin;
-  background-color: red;
-  border-radius: 50%;
-}
-
-.heart::before {
-  top: -12.5vmin;
-  left: 0;
-}
-
-.heart::after {
-  left: 12.5vmin;
-  top: 0;
-}
-
-/* Heartbeat animation */
-@keyframes beat {
-  0%, 100% {
-    transform: rotate(-45deg) scale(1);
-  }
-  50% {
-    transform: rotate(-45deg) scale(1.2);  /* scales up smoothly */
-  }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Heart Animation</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #000; /* optional */
+    }
+    canvas {
+      display: block;
+    }
+  </style>
 </head>
 <body>
-<div class="heart"></div>
+  <canvas id="heart"></canvas>
+  <script src="script.js"></script>
 </body>
 </html>
